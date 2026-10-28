@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Queue — SmartQueue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">🟢 SmartQueue</div>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/staff" class="login-btn">Staff</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="container">
+            <h2>Your Queue Status</h2>
+
+            <div class="ticket" style="margin: 30px auto;">
+                <h3>TOKEN</h3>
+                <div class="ticket-token" id="q-token">{{ token }}</div>
+
+                <div class="ticket-row">
+                    <span class="ticket-label">Current Serving</span>
+                    <span class="ticket-value" id="q-current">—</span>
+                </div>
+                <div class="ticket-row">
+                    <span class="ticket-label">People Ahead</span>
+                    <span class="ticket-value" id="q-ahead">—</span>
+                </div>
+                <div class="ticket-row">
+                    <span class="ticket-label">Estimated Wait</span>
+                    <span class="ticket-value" id="q-wait">—</span>
+                </div>
+                <div class="ticket-row">
+                    <span class="ticket-label">Status</span>
+                    <span class="ticket-value" id="q-status">—</span>
+                </div>
+                <div class="ticket-row">
+                    <span class="ticket-label">Service</span>
+                    <span class="ticket-value" id="q-service">—</span>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn-secondary" id="q-refresh">Refresh</button>
+                    <button class="btn-secondary" id="q-cancel">Cancel Queue</button>
+                </div>
+                <p class="note">Auto-refreshes every 10 seconds.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const TOKEN = "{{ token }}";
+    </script>
+    <script src="{{ url_for('static', filename='queue.js') }}"></script>
+</body>
+</html>

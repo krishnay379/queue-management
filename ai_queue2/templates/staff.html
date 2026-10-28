@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Dashboard — SmartQueue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">🟢 SmartQueue — Staff</div>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/staff">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="container">
+            <h2>Staff Dashboard</h2>
+
+            <div class="queue-card" style="margin-bottom: 24px;">
+                <div class="queue-item">
+                    <span class="label">Now Serving</span>
+                    <span class="value" id="current-serving">—</span>
+                </div>
+                <div class="queue-item">
+                    <span class="label">Waiting</span>
+                    <span class="value" id="waiting-count">0</span>
+                </div>
+            </div>
+
+            <div class="modal-actions" style="justify-content: center; margin-bottom: 24px;">
+                <button class="btn-primary" id="btn-call-next">CALL NEXT</button>
+                <button class="btn-secondary" id="btn-complete">COMPLETE</button>
+            </div>
+
+            <p class="modal-error" id="staff-error"></p>
+
+            <table class="staff-table">
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Customer</th>
+                        <th>Service</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody id="staff-table-body">
+                    <tr><td colspan="5">Loading…</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 SmartQueue. Staff view.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='staff.js') }}"></script>
+</body>
+</html>
